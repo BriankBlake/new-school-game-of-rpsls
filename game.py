@@ -30,16 +30,16 @@ class Game:
 while True: # Main game loop.
     while True: # Keep asking until player enters R, P, S, L, S, or Q.
         print("{} Wins, {} Losses, {} Ties'.format('wins, losses, ties')")
-        print("Enter your move: (R)ock (P)aper (S)cissors (L)izard (S)pock or (Q)uit")
+        print("Enter your move: (R)ock (P)aper (S)cissors (L)izard (SP)ock or (Q)uit")
         playerMove = input('> ').upper()
         if playerMove == 'Q':
             print('Thanks for playing!')
             sys.exit()
 
-        if playerMove == 'R' or playerMove == 'P' or playerMove == 'S' or playerMove == 'L' or playerMove == 'S':
+        if playerMove == 'R' or playerMove == 'P' or playerMove == 'S' or playerMove == 'L' or playerMove == 'SP':
             break
         else:
-            print('Type one of R, P, S, L, S, Q')
+            print('Type one of R, P, S, L, SP, Q')
 
     # Display what the player chose:
     if playerMove == 'R':
@@ -54,7 +54,7 @@ while True: # Main game loop.
     elif playerMove == 'L':
         print('Lizard versus.')
         playerMove = 'LIZARD'
-    elif playerMove == 'S':
+    elif playerMove == 'SP':
         print('Spock versus.')
         playerMove = 'SPOCK'
 
@@ -88,7 +88,7 @@ while True: # Main game loop.
         ties = ties + 1
     elif playerMove == 'ROCK' and AiMove == 'SCISSORS':
         print('You win!')
-        wins = wins + 1
+        win = wins + 1
     elif playerMove == 'PAPER' and AiMove == 'ROCK':
         print('You win!')
         wins = wins + 1
@@ -184,3 +184,15 @@ while True: # Main game loop.
     elif playerMove == 'SPOCK' and AiMove == 'LIZARD':
         print('You lose!')
         losses = losses + 1
+
+def restart(self):
+        self.play_again = input('would you like to run agian? yes or no: ').lower()
+        if self.play_again == 'yes':
+            self.player1.score = 0
+            self.player2.score = 0
+            self.run_game()
+        elif self.play_again == 'no':
+            print('thanks for playing!')
+        else:
+            print('invalid input please, choose yes or no!')
+            self.restart()
