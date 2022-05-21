@@ -8,9 +8,21 @@ import random, time, sys
 
 class Game:
     def __init__(self):
-        def display_welcome():
-         print ('Welcome to the best classic game ever of Rock, Paper, Scissors, Lizard, Spock!')
-
+        self.player1 = Human(input('hello player1, what is your name?  '))
+        self.player2 = Ai('opponent')
+        pass
+    def run_game(self):
+        self.display_rules()
+        self.is_opponent_human_or_ai()
+        self.get_names()
+        play_status = True
+        while(play_status == True):
+            self.start_rounds()
+            self.display_game_winner()
+            play_status = self.play_again()
+    
+    def display_welcome(self):
+        print ('Welcome to the best classic game ever of Rock, Paper, Scissors, Lizard, Spock!')
     def display_rules(self):
         print('The game will be played as best two out of three games!')
         print('rock destroys scissors!')
@@ -25,6 +37,14 @@ class Game:
         print('spock smashes rock!')
         print('rock kills spock!')
 
+    def is_opponent_human_or_ai(self):
+        valid_multi_input = self.validate_yes_no('multiplayer')
+        if valid_multi_input == 'y':
+            pass
+        else:
+            self.opponent = Ai()
+
+            
 
 
 while True: # Main game loop.
@@ -59,13 +79,13 @@ while True: # Main game loop.
         playerMove = 'SPOCK'
 
     # Count to three with dramatic pauses:
-    time.sleep(0.5)
+    time.sleep(2)
     print('1...')
-    time.sleep(0.25)
+    time.sleep(2)
     print('2...')
-    time.sleep(0.25)
+    time.sleep(2)
     print('3...')
-    time.sleep(0.25)
+    time.sleep(2)
 
     # Display what the ai chose:
     randomNumber = random.randint(0, 4)
@@ -80,119 +100,123 @@ while True: # Main game loop.
     elif randomNumber == 4:
         AiMove = 'SPOCK'
     print( AiMove)
-    time.sleep(0.5)
+    time.sleep(2)
 
     # Display and record the win/loss/tie:
+    # if self.player_one.chosen_gesture == 'ROCK' and self.player_two.chosen_gesture == 'PAPER'
+    # self.player_two.wins += 1
     if playerMove == AiMove:
         print('It\'s a tie!')
-        ties = ties + 1
+        ties = 'ties + 1'
     elif playerMove == 'ROCK' and AiMove == 'SCISSORS':
         print('You win!')
-        win = wins + 1
+        wins = 'wins += 1'
     elif playerMove == 'PAPER' and AiMove == 'ROCK':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins += 1'
     elif playerMove == 'SCISSORS' and AiMove == 'PAPER':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins += 1'
     elif playerMove == 'LIZARD' and AiMove == 'PAPER':
         print('You win!') 
-        wins = wins + 1
+        wins = 'wins += 1'
     elif playerMove == 'LIZARD' and AiMove == 'ROCK':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins += 1'
     elif playerMove == 'LIZARD' and AiMove == 'SPOCK':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins += 1'
     elif playerMove == 'SPOCK' and AiMove == 'ROCK':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins += 1'
     elif playerMove == 'SPOCK' and AiMove == 'PAPER':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins += 1'
     elif playerMove == 'SPOCK' and AiMove == 'SCISSORS':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins + 1'
     elif playerMove == 'SPOCK' and AiMove == 'LIZARD':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins + 1'
     elif playerMove == 'ROCK' and AiMove == 'SPOCK':
         print('You win!')
-        wins = wins + 1   
+        wins = 'wins + 1'   
     elif playerMove == 'ROCK' and AiMove == 'LIZARD':
         print('You win!')
-        wins = wins + 1  
+        wins = 'wins + 1'
     elif playerMove == 'PAPER' and AiMove == 'SPOCK':
         print('You win!')
-        wins = wins + 1  
+        wins = 'wins + 1'  
     elif playerMove == 'SCISSORS' and AiMove == 'LIZARD':
         print('You win!')
-        wins = wins + 1 
+        wins = 'wins + 1'
     elif playerMove == 'SCISSORS' and AiMove == 'SPOCK':
         print('You win!')
-        wins = wins + 1
+        wins = 'wins + 1'
 
 
     elif playerMove == 'ROCK' and AiMove == 'PAPER':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'PAPER' and AiMove == 'SCISSORS':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'SCISSORS' and AiMove == 'ROCK':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'ROCK' and AiMove == 'LIZARD':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'ROCK' and AiMove == 'SPOCK':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'PAPER' and AiMove == 'LIZARD':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'PAPER' and AiMove == 'SPOCK':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'SCISSORS' and AiMove == 'LIZARD':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'SCISSORS' and AiMove == 'SPOCK':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'LIZARD' and AiMove == 'ROCK':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'LIZARD' and AiMove == 'PAPER':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'LIZARD' and AiMove == 'SPOCK':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses += 1'
     elif playerMove == 'LIZARD' and AiMove == 'SCISSORS':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'SPOCK' and AiMove == 'ROCK':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'SPOCK' and AiMove == 'PAPER':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'SPOCK' and AiMove == 'SCISSORS':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
     elif playerMove == 'SPOCK' and AiMove == 'LIZARD':
         print('You lose!')
-        losses = losses + 1
+        losses = 'losses + 1'
 
-def restart(self):
-        self.play_again = input('would you like to run agian? yes or no: ').lower()
-        if self.play_again == 'yes':
-            self.player1.score = 0
-            self.player2.score = 0
-            self.run_game()
-        elif self.play_again == 'no':
-            print('thanks for playing!')
-        else:
-            print('invalid input please, choose yes or no!')
-            self.restart()
+def confirm_rpsls(Game):
+    thank_you_message = 'Thank you for playing rpsls!'
+
+    print(f'Did you like playing rpsls!')
+    user_input = input(f'Are you satisfied with playing the new rock, paper, scissors? yes or no:')
+    if user_input == 'yes':
+        print(thank_you_message)
+    else:
+        if user_input == 'no':
+            new_age_rpsls()
+
+
+new_school_game_of_rpsls()
