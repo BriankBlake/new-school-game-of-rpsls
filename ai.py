@@ -10,6 +10,5 @@ class Ai(Player):
         self.name = 'Ai'
 
     def ai_gesture(self):
-        random_gesture = random.randint(0,5)
+        random_gesture = random.randint(0,4)
         return random_gesture
-        

@@ -1,5 +1,12 @@
-class Human:
+from player import Player
+
+
+
+class Human(Player):
     def __init__(self):
+        super().__init__()
         self.name = ''
-        self.move = ''
-        self.win_count = int()
+
+    def create_players(self):
+      player_name = input()
+      return player_name

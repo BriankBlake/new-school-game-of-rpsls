@@ -1,24 +1,28 @@
-from human import Human
-
-class Player:
-    def __init__(self, name):
-        self.name = name
-        self.possible_gestures = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+class Player():
+    def __init__(self):
+        self.name = ''
+        self.gestures = ['R', 'P','S','L', 'Sp']
         self.chosen_gesture = ''
-        self.current_score = 0
-
+        self.score = 0
 
     def choose_gesture(self):
         
-        
         while True:
-            try:
-                chosen_gesture = int(input('please provide your gesture'))
+            try:    
+                chosen_gesture = int(input('Enter your gesture: '))
             except ValueError:
-                print('Sorry that is not a valid gesture, Please chose again')
+                print('not a valid selection please try again')
                 continue
 
-            if chosen_gesture >= 5:
-                print('invalid gesutre. Try Again')
-            else:
+            if chosen_gesture >= 5 :
+                print('Invalid Selection. Try Again.')
+                
+            # elif game_type == P:
+            #     print('You selected P v P.')
+            #     self.human_game()
+            #     break
+            else:  
+                # self.computer_game()
+        
                 return chosen_gesture
+       
