@@ -8,5 +8,7 @@ class Human(Player):
         self.name = ''
 
     def create_players(self):
-      player_name = input()
+      player_name = input('Player, enter your name: ')
       return player_name
+
+

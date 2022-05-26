@@ -8,20 +8,16 @@ class Game():
     def __init__(self):
         self.human = Human()
         self.ai = Ai()
-        self.player_one_choice=0
-        self.player_two_choice=0
-        self.Ai_choice=0
-        
-
+      
     def run_game(self):
         self.display_welcome()
         self.game_choice()
         self.display_winner()
-        self.confirm_rpsls()
+        self.restart()
        
 
     def display_welcome(self):
-        print('Welcome to the best classic game ever of (R)ock, (P)aper, (S)cissors, (L)izard, (Sp)ock!')
+        print('Welcome to the best classic game ever of (R)ock, (P)aper, (S)cissors, (L)izard, (Sp)ock (Qu!')
         time.sleep(2)    
         print('The game will be played as best two out of three games!')
         time.sleep(2)
@@ -47,6 +43,7 @@ class Game():
         time.sleep(1.5)
         print('R kills Sp!')  
         time.sleep(1.5)
+
         # Count to three with dramatic pauses:
         time.sleep(2)
         print('1...')
@@ -205,11 +202,14 @@ class Game():
         else: 
             print(f'{self.player02.name} player 2 won!!!!!\n') 
     
-    def confirm_rpsls(self):
-        thank_you_message = 'Thank you for playing rpsls!'
-        print(f'Did you like playing rpsls!')
-    user_input = input(f'yes or no:')
-    if user_input == 'yes':
-        print('Do you want to it back?')
-    if user_input == 'no':
-        print('Thank you for for playing:')
+    def restart(self):
+        self.play_again = input('Run it back? y or n: ').lower()
+        if self.play_again == 'y':
+            self.player01.score = 0
+            self.player02.score = 0
+            self.run_game()
+        elif self.play_again == 'n':
+            print('thank you come again!')
+        else:
+            print('invalid input please, choose y or n!')
+            self.restart()
