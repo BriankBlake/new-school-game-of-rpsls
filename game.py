@@ -14,7 +14,7 @@ class Game():
         self.game_choice()
         self.display_winner()
         self.restart()
-        self.run_rounds()
+        
 
     def display_welcome(self):
         print('Welcome to the best classic game ever of (R)ock, (P)aper, (S)cissors, (L)izard, (Sp)ock!')
