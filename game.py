@@ -14,10 +14,10 @@ class Game():
         self.game_choice()
         self.display_winner()
         self.restart()
-       
+        self.run_rounds()
 
     def display_welcome(self):
-        print('Welcome to the best classic game ever of (R)ock, (P)aper, (S)cissors, (L)izard, (Sp)ock (Qu!')
+        print('Welcome to the best classic game ever of (R)ock, (P)aper, (S)cissors, (L)izard, (Sp)ock!')
         time.sleep(2)    
         print('The game will be played as best two out of three games!')
         time.sleep(2)
@@ -195,6 +195,8 @@ class Game():
                     print(f'{gesture_a} beats {gesture_b}, {self.player01.name} wins!\n')
                     time.sleep(1.5)
                     self.player01.score +=1
+
+                    
     def display_winner(self):
         if self.player01.score == 2:
             print(f'{self.player01.name} player 1 won!!!!!\n')
