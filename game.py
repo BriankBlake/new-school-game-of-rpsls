@@ -14,10 +14,10 @@ class Game():
         self.game_choice()
         self.display_winner()
         self.restart()
-        
+       
 
     def display_welcome(self):
-        print('Welcome to the best classic game ever of (R)ock, (P)aper, (S)cissors, (L)izard, (Sp)ock!')
+        print('Welcome to the best classic game ever of (R)ock, (P)aper, (S)cissors, (L)izard, (Sp)ock')
         time.sleep(2)    
         print('The game will be played as best two out of three games!')
         time.sleep(2)
@@ -57,13 +57,13 @@ class Game():
     def game_choice(self):
         while True:
             try:    
-                game_type = int(input('Which game would you like to play? For PvP, Press (1), for PvE, Press (2): '))
+                game_type = int(input('Which game would you like to play? For PvP, Press (1), for PvA, Press (2): '))
             except ValueError:
                 print('not a valid selection please try again')
                 continue
 
             if game_type == 2:
-                print('You selected PvE.')
+                print('You selected PvA.')
                 self.computer_game()
                 break
             elif game_type == 1:
@@ -71,7 +71,7 @@ class Game():
                 self.human_game()
                 break
             else:  
-                print('Sorry, only P or E') 
+                print('Sorry, only P or A') 
         
 
     def human_game(self):
@@ -195,8 +195,6 @@ class Game():
                     print(f'{gesture_a} beats {gesture_b}, {self.player01.name} wins!\n')
                     time.sleep(1.5)
                     self.player01.score +=1
-
-                    
     def display_winner(self):
         if self.player01.score == 2:
             print(f'{self.player01.name} player 1 won!!!!!\n')
@@ -205,7 +203,7 @@ class Game():
             print(f'{self.player02.name} player 2 won!!!!!\n') 
     
     def restart(self):
-        self.play_again = input('Run it back? y or n: ').lower()
+        self.play_again = input('run it back? y or n: ').lower()
         if self.play_again == 'y':
             self.player01.score = 0
             self.player02.score = 0
